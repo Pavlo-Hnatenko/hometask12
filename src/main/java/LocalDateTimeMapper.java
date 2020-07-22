@@ -10,8 +10,8 @@ public class LocalDateTimeMapper {
 
         return timeList.stream()
                 .sorted(Comparator.comparing(LocalDateTime::toLocalDate))
-                .collect(Collectors.groupingBy(LocalDateTime::toLocalDate,TreeMap::new,
-                         Collectors.mapping(LocalDateTime::toLocalTime, Collectors.toSet())));
+                .collect(Collectors.groupingBy(LocalDateTime::toLocalDate, TreeMap::new,
+                        Collectors.mapping(LocalDateTime::toLocalTime, Collectors.toSet())));
 
     }
 }

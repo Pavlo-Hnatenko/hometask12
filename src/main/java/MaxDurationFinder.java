@@ -4,12 +4,12 @@ import java.util.List;
 
 public class MaxDurationFinder {
 
-    public static Duration getMaxDuration(List<LocalDateTime> timeList){
+    public static Duration getMaxDuration(List<LocalDateTime> timeList) {
 
         return timeList.stream()
-                        .map(localDateTime -> Duration.between(
+                .map(localDateTime -> Duration.between(
                         timeList.stream().min(LocalDateTime::compareTo).get(),
                         timeList.stream().max(LocalDateTime::compareTo).get()
-        )).findFirst().get();
+                )).findFirst().get();
     }
 }

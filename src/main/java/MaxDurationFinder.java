@@ -8,8 +8,8 @@ public class MaxDurationFinder {
 
         return timeList.stream()
                 .map(localDateTime -> Duration.between(
-                        timeList.stream().min(LocalDateTime::compareTo).get(),
-                        timeList.stream().max(LocalDateTime::compareTo).get()
-                )).findFirst().get();
+                        timeList.stream().min(LocalDateTime::compareTo).orElse(LocalDateTime.MAX),
+                        timeList.stream().max(LocalDateTime::compareTo).orElse(LocalDateTime.MAX)
+                )).findFirst().orElse(Duration.ZERO);
     }
 }
